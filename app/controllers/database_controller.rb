@@ -9,6 +9,10 @@ class DatabaseController < ApplicationController
     @list_of_directors = Director.all
   end
 
+  def actors
+    @list_of_actors= Actor.all
+  end
+
   def show_movie
     @movie = Movie.find_by({ :id => params[:id]})
     @movie_title = @movie.title
@@ -20,6 +24,10 @@ class DatabaseController < ApplicationController
 
   def show_director
     @director= Director.find_by({:id =>params[:id]})
+  end
+
+  def show_actor
+    @actor = Actor.find_by({:id=>params[:id]})
   end
 
   def destroy_director
@@ -34,6 +42,12 @@ class DatabaseController < ApplicationController
     redirect_to("/movies")
   end
 
+  def destroy_actor
+    actor = Actor.find_by({:id=>params[:id]})
+    actor.destroy
+    redirect_to("/actors")
+  end
+
   def new_form_directors
     @director = Director.find_by({:id => params[:id]})
     render("/directors/new_form_directors.html.erb")
@@ -46,8 +60,7 @@ class DatabaseController < ApplicationController
     n.dob=params[:dob]
     n.image_url=params[:image_url]
     n.save
-
-  end
+    end
 
   def edit_form_director
     @director = Director.find_by({:id => params[:id]})
@@ -58,6 +71,35 @@ class DatabaseController < ApplicationController
     n.image_url=params[:image_url]
   end
 
+  def edit_form_actor
+    @actor = Actor.find_by({:id=>params[:id]})
+    a = Actor.new
+    a.name=params[:name]
+    a.bio=params[:bio]
+    a.dob=params[:dob]
+    a.image_url=params[:image_url]
+  end
+
+  def update_row_actor
+    @actor = Actor.find_by({:id=>params[:id]})
+    b = Actor.new
+    b.name=params[:name]
+    b.bio=params[:bio]
+    b.dob=params[:dob]
+    b.image_url=params[:image_url]
+    b.save
+    redirect_to("actors/#{@actor.id}")
+  end
+
+  def new_form_actors
+    @actor = Actor.find_by({:id=>params[:id]})
+    a = Actor.new
+    a.name=params[:name]
+    a.bio=params[:bio]
+    a.dob=params[:dob]
+    a.image_url=params[:image_url]
+    a.save
+  end
   def update_row_director
     u = Director.find_by({:id => params[:id]})
     @director = Director.find_by({:id => params[:id]})
@@ -77,6 +119,17 @@ class DatabaseController < ApplicationController
     m.year=params[:year]
     m.image_url=params[:image_url]
     m.description=params[:description]
+  end
+
+  def new_form_movies
+    @movie = Movie.find_by({:id => params[:id]})
+    m = Movie.find_by({:id=>params[:id]})
+    m.title=params[:title]
+    m.duration=params[:duration]
+    m.year=params[:year]
+    m.image_url=params[:image_url]
+    m.description=params[:description]
+    m.save
   end
 
   def update_row_movie

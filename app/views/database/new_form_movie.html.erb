@@ -1,0 +1,34 @@
+<a href="/directors">Directors</a>
+<a href="/movies">Movies</a>
+<a href="/actors">Actors</a>
+
+<h1>Add a New Movie</h1>
+
+<form action="/movies/create_movie">
+  <div>
+  <label for="movie">Title:</label>
+  <input id="movie_title" type="string" name="add_title">
+</div>
+<div>
+  <label for="movie_description">description</label>
+  <input id="movie_description" name="add_desc" type="string">
+</div>
+<div>
+  <label for="movie_year">Year</label>
+  <input id="movie_year" name="add_year" type="string">
+</div>
+
+<div>
+  <label for="movie_duration">duration</label>
+  <input id="movie_duration" name="add_duration" type="string">
+</div>
+
+<div>
+  <label for="movie_image">Image URL</label>
+  <input id="movie_image" name="add_image_url" type="string">
+
+</div>
+
+<button>New Movie</button>
+
+</form>

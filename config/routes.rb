@@ -26,4 +26,17 @@ Rails.application.routes.draw do
   # movies
   get("/movies/:id/edit_form_movie", {:controller=>"database", :action=> "edit_form_movie"})
   get("/movies/:id/update_row_movie", {:controller => "database", :action =>"update_row_movie"})
+
+  #actors
+  get("/actors", {:controller => "database", :action => "actors"})
+  get("/actors/:id", {:controller => "database", :action => "show_actor"})
+  get("/actors/:id/edit_form_actor", {:controller => "database", :action => "edit_form_actor"})
+  get("/actors/delete_actor/:id", {:controller => "database", :action => "destroy_actor"})
+  get("/actors/new_form_actors", {:controller => "database", :action => "new_form_actors"})
+  get("/actors/:id/update_row_actor", {:controller => "database", :action => "update_row_actor"})
+
+
+
+
+
 end
