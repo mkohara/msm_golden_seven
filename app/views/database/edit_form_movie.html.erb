@@ -1,8 +1,8 @@
 <h1>Edit Movies</h1>
 
-<form action="/movies/<%= @movie.id %>/update_row_movies">
-  <label for="movie_name">Name</label>
-  <input id ="movie.name" type="text" name="name" value="<%= @movie.name %>">
+<form action="/movies/<%= @movie.id %>/update_row_movie">
+  <label for="movie_title">Title</label>
+  <input id ="movie.title" type="text" name="title" value="<%= @movie.title %>">
 
   <label for="movie_year">Year</label>
   <input id ="movie.year" type="text" name="year" value="<%= @movie.year %>">
@@ -13,6 +13,8 @@
   <label for="image_url">Image URL</label>
   <input id ="movie.image_url" type="string" name="image_url" value="<%= @movie.image_url %>">
 
+  <label for="movie.description">description</label>
+  <input id="movie.description" name="description" type="string" value="<%= @movie.description %>">
 
   <button>Update Movie</button>
 

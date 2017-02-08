@@ -1,5 +1,6 @@
 <h1>List of Movies</h1>
 <a href="/directors">See Directors</a>
+<a href="/movies/new_form_movies">New Movie</a>
 
 <table>
   <tr>
@@ -22,8 +23,8 @@
     <td><%= movie.description %></td>
     <td>
       <a href="/movies/<%= movie.id %>">Show</a>
-      <a href="/<%= movie.id %>/edit_form_movie">Edit</a>
-      <a href="/delete_movie/<%= movie.id %>">Delete</a>
+      <a href="/movies/<%= movie.id %>/edit_form_movie">Edit</a>
+      <a href="/movies//delete_movie/<%= movie.id %>">Delete</a>
     </td>
   </tr>
 

@@ -28,6 +28,12 @@ class DatabaseController < ApplicationController
     redirect_to("/directors")
   end
 
+  def destroy_movie
+    movie= Movie.find_by({:id=>params[:id]})
+    movie.destroy
+    redirect_to("/movies")
+  end
+
   def new_form_directors
     @director = Director.find_by({:id => params[:id]})
     render("/directors/new_form_directors.html.erb")
@@ -66,9 +72,22 @@ class DatabaseController < ApplicationController
   def edit_form_movie
     @movie = Movie.find_by({:id => params[:id]})
     m = Movie.new
-    m.name=params[:name]
+    m.title=params[:title]
     m.duration=params[:duration]
     m.year=params[:year]
     m.image_url=params[:image_url]
+    m.description=params[:description]
+  end
+
+  def update_row_movie
+    @movie = Movie.find_by({:id => params[:id]})
+    m = Movie.find_by({:id=>params[:id]})
+    m.title=params[:title]
+    m.duration=params[:duration]
+    m.year=params[:year]
+    m.image_url=params[:image_url]
+    m.description=params[:description]
+    m.save
+    redirect_to("/movies/#{@movie.id}")
   end
 end
