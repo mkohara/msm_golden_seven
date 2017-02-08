@@ -1,8 +1,11 @@
 class DatabaseController < ApplicationController
 
 
+  def index
+    @list_of_movies = Movie.all
+  end
+
   def directors
-    @list_of_directors =
-    render("directors.html.erb")
+    @list_of_directors = Director.all
   end
 end

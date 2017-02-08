@@ -1,11 +1,24 @@
-
-
+<h1>Directors</h1>
 <table>
   <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Bio</th>
+    <th>DOB</th>
 
+  </tr>
 
-<% @list_of_directors.each do |directors| %>
+<%@list_of_directors.each do |director| %>
+<tr>
+  <td><img src="<%= director.image_url %>" alt="director Image"></td>
 
-<%= directors.name %>
+  <td><%= director.name %></td>
+
+  <td><%= director.bio %></td>
+
+  <td> <%= director.dob %></td>
 </tr>
+
+
+<%end %>
 </table>
