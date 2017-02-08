@@ -1,5 +1,6 @@
 <h1>Directors</h1>
 <a href="/movies">See Movies</a>
+<a href="/directors/new_form_directors">New director</a>
 
 <table>
   <tr>
@@ -19,6 +20,11 @@
   <td><%= director.bio %></td>
 
   <td> <%= director.dob %></td>
+  <td>
+    <a href="/directors/<%= director.id %>">Show</a>
+    <a href="/<%= director.id %>/edit_form_director">Edit</a>
+    <a href="/delete_director/<%= director.id %>">Delete</a>
+  </td>
 </tr>
 
 
