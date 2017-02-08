@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get("/actors/delete_actor/:id", {:controller => "database", :action => "destroy_actor"})
   get("/actors/new_form_actors", {:controller => "database", :action => "new_form_actors"})
   get("/actors/:id/update_row_actor", {:controller => "database", :action => "update_row_actor"})
+  get("/actors/create_row_actor", {:controller => "database", :action=> "create_row_actor"})
   get("/actors/:id", {:controller => "database", :action => "show_actor"})
 
 

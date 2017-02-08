@@ -56,14 +56,14 @@ class DatabaseController < ApplicationController
     n.save
     end
 
-  def add
-    @actor = Actor.find_by({:id=>params[:id]})
+  def create_row_actor
     a = Actor.new
     a.name=params[:add_name]
     a.bio=params[:add_bio]
     a.dob=params[:add_dob]
     a.image_url=params[:add_image_url]
     a.save
+    redirect_to("/actors")
   end
 
   def create_row_movie
@@ -101,7 +101,7 @@ class DatabaseController < ApplicationController
 
   def new_form_actors
   end
-  
+
   def update_row_director
     u = Director.find_by({:id => params[:id]})
     @director = Director.find_by({:id => params[:id]})
