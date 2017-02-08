@@ -18,8 +18,12 @@ Rails.application.routes.draw do
 
 #update
   get("/directors/new_form_directors", {:controller=> "database", :action => "new_form_directors"})
-  
+
   get("/directors/create_row_directors", {:controller=> "database", :action => "create_row_directors"})
   get("/directors/:id/edit_form_director", {:controller=>"database", :action=> "edit_form_director"})
   get("/directors/:id/update_row_director", {:controller => "database", :action =>"update_row_director"})
+
+  # movies
+  get("/movies/:id/edit_form_movie", {:controller=>"database", :action=> "edit_form_movie"})
+  get("/movies/:id/update_row_movie", {:controller => "database", :action =>"update_row_movie"})
 end

@@ -30,7 +30,7 @@ class DatabaseController < ApplicationController
 
   def new_form_directors
     @director = Director.find_by({:id => params[:id]})
-
+    render("/directors/new_form_directors.html.erb")
   end
 
   def create_row_directors
@@ -61,5 +61,14 @@ class DatabaseController < ApplicationController
     u.dob = params[:dob]
     u.save
     redirect_to("/directors/#{@director.id}")
+  end
+
+  def edit_form_movie
+    @movie = Movie.find_by({:id => params[:id]})
+    m = Movie.new
+    m.name=params[:name]
+    m.duration=params[:duration]
+    m.year=params[:year]
+    m.image_url=params[:image_url]
   end
 end
