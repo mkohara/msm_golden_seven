@@ -44,7 +44,6 @@ class DatabaseController < ApplicationController
   end
 
   def new_form_directors
-    render("directors/new_form_directors.html.erb")
   end
 
   def create_row_director
@@ -54,6 +53,8 @@ class DatabaseController < ApplicationController
     n.dob=params[:n_dob]
     n.image_url=params[:n_image_url]
     n.save
+    redirect_to("/directors/#{@director.id}")
+
     end
 
   def create_row_actor
@@ -63,7 +64,7 @@ class DatabaseController < ApplicationController
     a.dob=params[:add_dob]
     a.image_url=params[:add_image_url]
     a.save
-    redirect_to("/actors")
+    redirect_to("/actors/#{@actors.id}")
   end
 
   def create_row_movie
@@ -133,8 +134,6 @@ class DatabaseController < ApplicationController
   end
 
   def new_form_movies
-
-    render("movies/new_form_movies.html.erb")
   end
 
   def update_row_movie
