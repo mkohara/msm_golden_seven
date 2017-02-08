@@ -49,10 +49,10 @@ class DatabaseController < ApplicationController
 
   def create_row_director
     n = Director.new
-    n.name=params[:name]
-    n.bio=params[:bio]
-    n.dob=params[:dob]
-    n.image_url=params[:image_url]
+    n.name=params[:n_name]
+    n.bio=params[:n_bio]
+    n.dob=params[:n_dob]
+    n.image_url=params[:n_image_url]
     n.save
     end
 
@@ -67,8 +67,17 @@ class DatabaseController < ApplicationController
   end
 
   def create_row_movie
-
+    d = Movie.find_by({:id=>params[:id]})
+    d.title=params[:add_title]
+    d.duration=params[:add_duration]
+    d.year=params[:add_year]
+    d.image_url=params[:add_image_url]
+    d.description=params[:add_description]
+    d.save
+    redirect_to("/movies/#{@movie.id}")
   end
+
+
 
   def edit_form_director
     @director = Director.find_by({:id => params[:id]})
