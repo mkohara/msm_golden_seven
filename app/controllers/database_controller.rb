@@ -14,12 +14,7 @@ class DatabaseController < ApplicationController
   end
 
   def show_movie
-    @movie = Movie.find_by({ :id => params[:id]})
-    @movie_title = @movie.title
-    @movie_year = @movie.year
-    @movie_duration =@movie.duration
-    @movie_description = @movie.description
-    @movie_image = @movie.image_url
+    @movie = Movie.find_by({:id => params[:id]})
   end
 
   def show_director
@@ -49,11 +44,10 @@ class DatabaseController < ApplicationController
   end
 
   def new_form_directors
-    @director = Director.find_by({:id => params[:id]})
-    render("/directors/new_form_directors.html.erb")
+    render("directors/new_form_directors.html.erb")
   end
 
-  def create_row_directors
+  def create_row_director
     n = Director.new
     n.name=params[:name]
     n.bio=params[:bio]
@@ -61,6 +55,20 @@ class DatabaseController < ApplicationController
     n.image_url=params[:image_url]
     n.save
     end
+
+  def add
+    @actor = Actor.find_by({:id=>params[:id]})
+    a = Actor.new
+    a.name=params[:add_name]
+    a.bio=params[:add_bio]
+    a.dob=params[:add_dob]
+    a.image_url=params[:add_image_url]
+    a.save
+  end
+
+  def create_row_movie
+
+  end
 
   def edit_form_director
     @director = Director.find_by({:id => params[:id]})
@@ -92,14 +100,8 @@ class DatabaseController < ApplicationController
   end
 
   def new_form_actors
-    @actor = Actor.find_by({:id=>params[:id]})
-    a = Actor.new
-    a.name=params[:name]
-    a.bio=params[:bio]
-    a.dob=params[:dob]
-    a.image_url=params[:image_url]
-    a.save
   end
+  
   def update_row_director
     u = Director.find_by({:id => params[:id]})
     @director = Director.find_by({:id => params[:id]})
@@ -122,14 +124,8 @@ class DatabaseController < ApplicationController
   end
 
   def new_form_movies
-    @movie = Movie.find_by({:id => params[:id]})
-    m = Movie.find_by({:id=>params[:id]})
-    m.title=params[:title]
-    m.duration=params[:duration]
-    m.year=params[:year]
-    m.image_url=params[:image_url]
-    m.description=params[:description]
-    m.save
+
+    render("movies/new_form_movies.html.erb")
   end
 
   def update_row_movie
