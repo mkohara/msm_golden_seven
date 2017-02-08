@@ -1,4 +1,6 @@
 <h1>Directors</h1>
+<a href="/movies">See Movies</a>
+
 <table>
   <tr>
     <th>Image</th>
@@ -12,7 +14,7 @@
 <tr>
   <td><img src="<%= director.image_url %>" alt="director Image"></td>
 
-  <td><%= director.name %></td>
+  <td> <a href="/directors/<%= director.id %>"> <%= director.name %></a></td>
 
   <td><%= director.bio %></td>
 
